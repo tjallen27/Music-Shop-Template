@@ -1,0 +1,103 @@
+body {
+  font-weight: 300;
+  font-family: 'Open Sans', sans-serif;
+}
+audio {
+  width: 100%;
+}
+p,
+li {
+  letter-spacing: 0.65px;
+}
+ul {
+  padding-left: 0;
+}
+hr {
+  width: 80%;
+  margin: 0 auto;
+}
+#message-successful-payment,
+#message-unsuccessful-payment {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background: #333;
+  display: none;
+  transition: 0.3s ease;
+}
+#message-successful-payment p,
+#message-unsuccessful-payment p{
+  margin: 0;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+.App-header {
+  text-align: center;
+}
+.App-header h1 {
+  font-weight: 600;
+  font-size: 80px;
+  padding: 30px 0 10px;
+}
+.main-container .checkbox-container {
+  width: 110px;
+  margin: 0 auto;
+}
+.main-container #clearFilter {
+  display: inline;
+  margin: 0 0 20px 0;
+}
+.main-container select {
+  display: block;
+  width: 180px;
+  margin: 20px auto 5px;
+  font-size: 14px;
+  background: #fff;
+  font-weight: 300;
+}
+.main-gallery {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.main-gallery .container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.songList .songList-item {
+
+}
+.songList .songList-item li {
+  list-style: none;
+  text-align: center;
+}
+.songList .songList-item ul {
+  list-style: none;
+}
+
+.songList-item ul li:first-child {
+  font-size: 20px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+.songList .songList-item i {
+  cursor: pointer;
+}
+.StripeCheckout {
+  color: #fff;
+  padding: 5px 50px !important;
+  margin: 10px 0;
+  background: rgba(10, 110, 250, 0.8) !important;
+}
+
+/* MEDIA QUERIES */
+@media only screen and  (max-width: 1068px) {
+  .main-gallery {
+    max-width: 600px;
+    margin: 50px auto;
+  }
+}
