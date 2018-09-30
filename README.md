@@ -1,6 +1,8 @@
-# This is a e-commerce - download template
+#### The aim of this project was to include an Express backend with a React project.
 
-### The aim of this project was to include Stripe API with a React project.
+How to launch:
+* cd to /backend and run node index.js
+* cd to /client and run yarn start
 
 Built with:
   - ReactJS
