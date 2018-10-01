@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import * as ReactBootstrap from 'react-bootstrap';
 import Checkout from './Checkout';
 import './App.css';
+import { download } from './download';
 import { songs } from './songs';
 
 class App extends Component {
@@ -56,6 +57,7 @@ class App extends Component {
 
 
 
+
   render() {
     const songList = songs.map((song, index) =>
       <ReactBootstrap.Col xs={12} sm={6} md={4} lg={4} className="songList-item col-6" key={index}>
@@ -74,6 +76,9 @@ class App extends Component {
             <Checkout
             name={song.title}
             amount={14.99}
+
+            download={this.download}
+
           />
           </li>
         </ul>
@@ -89,6 +94,7 @@ class App extends Component {
       }
       return unique_array
     }
+
 
     const genres = [];
     for(var i = 0; i < songs.length; i++){
@@ -148,5 +154,4 @@ class App extends Component {
     );
   }
 }
-
 export default App;

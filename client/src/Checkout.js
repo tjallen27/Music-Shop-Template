@@ -4,16 +4,17 @@ import StripeCheckout from 'react-stripe-checkout';
 
 import STRIPE_PUBLISHABLE from './constants/stripe';
 import PAYMENT_SERVER_URL from './constants/server';
-
+import { download } from './download';
 const CURRENCY = 'GBP';
 
 const fromEuroToCent = amount => amount * 100;
+
 
 const successPayment = (data) => {
   const message = document.getElementById('message-successful-payment');
 
   // download the fuuckkkingggg song!
-
+  download();
   message.style.display='block';
 };
 
