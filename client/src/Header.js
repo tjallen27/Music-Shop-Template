@@ -8,9 +8,6 @@ export default class Header extends Component {
         <p className="App-intro">
           <span role="img" aria-label="emoji">🎧</span>  Royalty free music. No tricks. Just £14.99 each. <span role="img" aria-label="emoji">🎧</span>
         </p>
-        <p className="App-intro">
-          Each download contains 30, 60 and 120 second clips.
-        </p>
       </header>
     )
   }

@@ -11,7 +11,7 @@ const songs = [
     title: 'Track Two',
     genre: 'Atomspheric',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. ',
-    songSrc: 'https://s3.amazonaws.com/react-music-bucket/Lil.Wayne+-+A+Milli+(Produced+By+Bangladesh).mp3',
+    songSrc: 'https://s3.amazonaws.com/react-music-bucket/VERSA+Wanderlust+%5BOFFICIAL+AUDIO%5D.mp3',
     amount: 14.99
   },{
     id: 2,
