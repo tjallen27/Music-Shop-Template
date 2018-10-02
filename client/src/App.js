@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import * as ReactBootstrap from 'react-bootstrap';
 import Checkout from './Checkout';
+import Header from './Header';
+import ErrMess from './ErrMess';
 import './App.css';
-import { download } from './download';
 import { songs } from './songs';
 
 class App extends Component {
   constructor(props){
     super(props)
-
     this.state = {
-      title: songs[0].title,
-      description: songs[0].description,
-      genre: '',
-      songSrc: '',
-      select: ''
+      genre: ''
     }
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleClick(){
+    console.log('Checkout click');
   }
 
   handleChange(e){
@@ -38,7 +38,6 @@ class App extends Component {
     }
   }
 
-
   clearFilter(e){
     var checkbox = document.getElementById('clearFilter');
     if(checkbox.checked !== false){
@@ -47,18 +46,14 @@ class App extends Component {
         var hiddenElements = document.getElementsByClassName('songList-item');
         hiddenElements[i].classList.remove('hidden');
         if (songs[i].genre !== e.target.value){
-          console.log(songs[i].genre);
-
           hiddenElements[i].classList.remove('hidden');
         }
       }
     }
   }
 
-
-
-
   render() {
+
     const songList = songs.map((song, index) =>
       <ReactBootstrap.Col xs={12} sm={6} md={4} lg={4} className="songList-item col-6" key={index}>
         <ul>
@@ -75,15 +70,19 @@ class App extends Component {
           <li>
             <Checkout
             name={song.title}
-            amount={14.99}
-
-            download={this.download}
-
-          />
+            amount={song.amount}
+            songSrc={song.songSrc}
+            />
           </li>
         </ul>
       </ReactBootstrap.Col>
     );
+
+    const genres = [];
+    for(var i = 0; i < songs.length; i++){
+      var filterList = genres.push(songs[i].genre);
+    }
+
 
     function removeDuplicates(arr){
       let unique_array = []
@@ -95,39 +94,17 @@ class App extends Component {
       return unique_array
     }
 
-
-    const genres = [];
-    for(var i = 0; i < songs.length; i++){
-      var filterList = genres.push(songs[i].genre);
-    }
-
     filterList = removeDuplicates(genres);
-
     return (
+
       <div className="App">
-        <div id="message-successful-payment">
-          <p>Thanks, click here to download </p>
-        </div>
-        <div id="message-unsuccessful-payment">
-          <p>Unfortunately your payment did not go through! Please try again later.</p>
-        </div>
-
-        <header className="App-header">
-          <h1 className="App-title">Klick Audio</h1>
-          <p className="App-intro">
-            <span role="img" aria-label="emoji">🎧</span>  Royalty free music. No tricks. Just £14.99 each. <span role="img" aria-label="emoji">🎧</span>
-          </p>
-          <p className="App-intro">
-            Each download contains 30, 60 and 120 second clips.
-          </p>
-        </header>
-
+        <ErrMess value={songList}/>
+        <Header />
         <div className="main-container">
           <div className="form container">
             <form>
             <select onChange={this.handleChange} value={this.state.genre}>
               {filterList.map((item, index)=> (
-
                 <option key={index}>
                   {item}
                 </option>
@@ -144,9 +121,9 @@ class App extends Component {
 
           <div className="main-gallery">
             <ReactBootstrap.Grid>
-            <ReactBootstrap.Row className="songList container show-grid">
-              {songList}
-            </ReactBootstrap.Row>
+              <ReactBootstrap.Row className="songList container show-grid">
+                {songList}
+              </ReactBootstrap.Row>
             </ReactBootstrap.Grid>
           </div>
         </div>
@@ -154,4 +131,5 @@ class App extends Component {
     );
   }
 }
+
 export default App;

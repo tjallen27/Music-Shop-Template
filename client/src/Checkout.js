@@ -4,17 +4,17 @@ import StripeCheckout from 'react-stripe-checkout';
 
 import STRIPE_PUBLISHABLE from './constants/stripe';
 import PAYMENT_SERVER_URL from './constants/server';
+
 import { download } from './download';
 const CURRENCY = 'GBP';
-
 const fromEuroToCent = amount => amount * 100;
 
+const buttons = document.getElementsByClassName('StripeCheckout');
 
-const successPayment = (data) => {
+
+
+const successPayment = (data, event) => {
   const message = document.getElementById('message-successful-payment');
-
-  // download the fuuckkkingggg song!
-  download();
   message.style.display='block';
 };
 
@@ -34,13 +34,15 @@ const onToken = (amount, description) => token =>
     .then(successPayment)
     .catch(errorPayment);
 
-const Checkout = ({ name, description, amount }) =>
+const Checkout = ({ name, description, songSrc, amount, handleClick }) =>
   <StripeCheckout
     name={name}
     amount={fromEuroToCent(amount)}
+    songSrc={songSrc}
     token={onToken(amount, description)}
     currency={CURRENCY}
     stripeKey={STRIPE_PUBLISHABLE}
+    onClick={this.handleClick}
   />
 
 export default Checkout;
